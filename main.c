@@ -1,11 +1,5 @@
 /* Reaction time game */
-#include <stdio.h>
-#include "sdkconfig.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
-#include "esp_system.h"
-#include "esp_spi_flash.h"
-#include "my_gpio.h"
+#include <avr/io.h>
 
 #define LED_LINE0   PA1
 #define LED_LINE1   PA5
@@ -95,7 +89,7 @@ eGameState_t checkBoard(sBoardState_t *boardState, eButtonState_t buttonState)
             break;
     } 
     // FIXME
-    // Check next available cursor position, if no available position is found, then stalmate condition has been met
+    // Check next available cursor position, if no available position is found, then stalemate condition has been met
     // Check if any vertical, horizontal or diagonal 3 adjacent spaces are filled by the same color
     // If so, then a winner is found and return the corresponding game state
     return eOngoingGame;
